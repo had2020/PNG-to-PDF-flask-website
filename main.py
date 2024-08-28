@@ -1,6 +1,6 @@
-from flask import Flask, render_template, send_file, request, abort
+from flask import Flask, render_template, send_file, request
 from flask_cors import CORS
-from generatecode import generate_qrcode
+#from generatecode import generate_qrcode
 import os
 
 app = Flask(__name__)
