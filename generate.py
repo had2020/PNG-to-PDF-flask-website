@@ -4,6 +4,6 @@ import os
 def pngtopdf(file):
     pdf = FPDF()
     pdf.add_page()
-    pdf.image("docs/fpdf2-logo.png", x=20, y=60)
+    pdf.image(file, x=10, y=10, w=190, h=277)
     pdf.output("pdf-with-image.pdf")
     return()
