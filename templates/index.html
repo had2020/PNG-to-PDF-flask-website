@@ -83,9 +83,9 @@
   <div class="container">
     <h1 class="title">PNG to PDF file converter</h1>
     <p>change</p>
-    <form action="/process" method="POST">
-        <input class="input" type="file" id="file" name="file" accept=".png,.PNG"></input>
-        <button class="button" type="submit">Covert to PDF</button>
+    <form action="{{ url_for('process') }}" method="POST" enctype="multipart/form-data">
+      <input type="file" name="file">
+      <input type="submit" value="Upload">
     </form>
   </div>
 </body>
