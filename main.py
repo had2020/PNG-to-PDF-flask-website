@@ -1,6 +1,6 @@
 from flask import Flask, render_template, send_file, request
 from flask_cors import CORS
-#from generatecode import generate_qrcode
+from generate import generate_pdf
 import os
 
 app = Flask(__name__)
@@ -12,11 +12,10 @@ def index():
 
 @app.route('/process', methods=['POST', 'GET'])
 def process():
-  url = request.form['url']
-  image = str(generate_qrcode(url))
-  #Todo change this to send you to main page or something
+  file = request.form['file']
+  pdf = str(generate_pdf(file))
   result = "Button clicked!"
-  return send_file(image), render_template('result.html', result=result)
+  return send_file(pdf), render_template('result.html', result=result)
   
 
 if __name__ == '__main__':

@@ -1,4 +1,3 @@
-import pdf2image
 from PIL import Image
 import datetime
 
@@ -29,13 +28,21 @@ def generate_qrcode(url):
 
     return(image_path)
 
-def generate_pdf(url):
-    # Load 
-    with open('example.pdf', 'rb') as file:
-        pages = pdf2image.convert_from_bytes(file.read())
+def generate_pdf(file):
+    """
+    image = Image.open(file)
+    pdf_path = file.replace('.png', '.pdf')
+    image.save(pdf_path, 'PDF', resolution=100.0)
+    return('pdf_path.png')
+    """
+
+    # Open 
+    img = Image.open(file)
+
+    # Convert
+    img = img.convert("RGB")
 
     # Save 
-    for page in pages:
-        img = Image.frombytes('RGB', page.size, page.tobytes())
-        img.save(f'output_{i}.png')
-        i += 1
+    img.save("output.pdf")
+
+    return('output.pdf')
